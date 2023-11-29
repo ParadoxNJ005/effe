@@ -1,8 +1,6 @@
 package com.example.keries.fragments
 
 
-import android.graphics.Color
-import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.os.CountDownTimer
 import androidx.fragment.app.Fragment
@@ -12,17 +10,18 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.keries.R
 import com.example.keries.adapter.featuredEventsAdapter
-import com.example.keries.dataClass.Event_DataClass
 import com.example.keries.dataClass.FeaturedEventes
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
+import android.content.Context
+import android.content.SharedPreferences
+
 
 class Home : Fragment() {
     private lateinit var mainstageEventRecyclerView: RecyclerView
@@ -41,18 +40,6 @@ class Home : Fragment() {
 
 
         val rootView = inflater.inflate(R.layout.fragment_home, container, false)
-//
-//        // Create a GradientDrawable with your desired colors
-//        val gradientDrawable = GradientDrawable(
-//            GradientDrawable.Orientation.TOP_BOTTOM,
-//            intArrayOf(Color.BLACK, Color.BLUE)
-//        )
-//
-//        // Find the root layout view (assuming it's a ConstraintLayout)
-//        val rootLayout = rootView.findViewById<ConstraintLayout>(R.id.beta)
-//
-//        // Set the background drawable to the root layout
-//        rootLayout.background = gradientDrawable
 
         return rootView
     }
@@ -85,6 +72,24 @@ class Home : Fragment() {
         notifyTool.setOnClickListener {
             loadFragment(notification())
         }
+
+
+
+
+//        val db = FirebaseFirestore.getInstance()
+//        val collectionRef = db.collection("Effe_Date")
+//        collectionRef.get()
+//            .addOnSuccessListener { result ->
+//                for (document in result) {
+//                    val data = document.data
+//                    val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+//                    sharedPreferences.edit().putString("key", data["field_name"].toString()).apply()
+//                }
+//            }
+//            .addOnFailureListener { exception ->
+//                // Handle errors here
+//            }
+
     }
 
 
